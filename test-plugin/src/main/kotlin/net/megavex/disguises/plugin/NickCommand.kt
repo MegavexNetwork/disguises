@@ -19,7 +19,7 @@ class NickCommand(private val provider: DisguiseProvider) : Command("nick") {
 
         val username = args[0]
         sender.sendPlainMessage("Setting nick to: $username")
-        provider.registerHook(sender.uniqueId, UsernameHook(username, UUID.randomUUID()))
+        provider.registerHook(sender.uniqueId, BasicProfileHook(username, UUID.randomUUID()))
         provider.refreshPlayer(sender)
         return true
     }
