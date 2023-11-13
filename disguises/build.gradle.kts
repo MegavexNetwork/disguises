@@ -1,4 +1,5 @@
 plugins {
+    `maven-publish`
     id("io.papermc.paperweight.userdev") version "1.5.5"
 }
 
@@ -13,4 +14,8 @@ tasks.assemble {
 
 kotlin {
     explicitApi()
+}
+
+publishing.publications.create<MavenPublication>("maven") {
+    from(components["java"])
 }
